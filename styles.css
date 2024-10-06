@@ -1,0 +1,194 @@
+:root {
+    --blush: hsl(14, 76%, 80%);
+    --beige: hsl(38, 70%, 95%);
+    --wheat: hsl(38, 70%, 90%);
+    --jet: hsl(69, 8%, 17%);
+    --mouse: hsl(69, 8%, 67%);
+    --shadow-mobile: .25rem .25rem var(--jet);
+    --shadow-desktop: .5rem .5rem var(--jet);
+    --border: .25rem solid var(--jet);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'montserrat', sans-serif;
+}
+
+li {
+    list-style: none;
+    padding-left: 0;
+}
+
+input {
+    appearance: none;
+    border: none;
+    outline: none;
+    background: none;
+    cursor: initial;
+    font-size: 1rem;
+    font-weight: 600;
+    width: 100%;
+}
+
+button {
+    text-transform: uppercase;
+    border: none;
+    outline: none;
+    background: none;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    background-size: cover;
+    background-color: var(--blush);
+    padding: 1rem;
+}
+
+.app {
+    width: 100%;
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 1.5rem 1.5rem;
+    border-radius: 1.5rem;
+    background-color: var(--beige);
+    box-shadow: var(--shadow-mobile);
+    border: var(--border);
+}
+
+.app__title,
+.create__todo,
+.todo__list {
+    margin-block-end: 1.5rem;
+}
+
+.app__title {
+    font-size: 2.5rem;
+    color: var(--jet);
+    display: flex;
+    align-items: center;
+    padding-inline-start: 1rem;
+}
+
+.create__todo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--wheat);
+    border: var(--border);
+    border-radius: 2.5rem;
+    padding: .25rem;
+}
+
+.create__todo input[type="text"] {
+    flex: 1 1 0%;
+    border: none;
+    outline: none;
+    color: var(--jet);
+    background-color: transparent;
+    padding-inline-start: 1rem;
+}
+
+.create__todo input[type="text"]::placeholder {
+    color: var(--mouse);
+}
+
+.add__todo {
+    padding: .75rem 1.5rem;
+    color: var(--beige);
+    background-color: var(--jet);
+    border-radius: 2.5rem;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.add__todo:hover {
+    opacity: .85;
+    transition: .25s ease-in-out;
+}
+
+.todo__item {
+    display: flex;
+    align-items: center;
+    column-gap: .5rem;
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+
+.bubble {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    border: var(--border);
+}
+
+.bubble::after {
+    content: "";
+    display: block;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    background-color: var(--jet);
+    border-radius: 50%;
+    transition: 0.3s ease-in-out;
+}
+
+input:checked ~ .bubble::after {
+    width: 1rem;
+    height: 1rem;
+    opacity: 1;
+}
+
+input:checked ~ .todo__content input {
+    color: var(--mouse);
+    text-decoration: line-through;
+}
+
+.todo__item .todo__content {
+    flex: 1 1 0%;
+    width: 100%;
+}
+
+.todo__item .todo__actions {
+    display: flex;
+    align-items: center;
+}
+
+.buttons {
+    display: block;
+    padding: .5rem .5rem;
+    border-radius: 5rem;
+    font-weight: 600;
+    color: var(--mouse);
+    transition: 0.3s ease-in-out;
+}
+
+.buttons:hover {
+    color: var(--blush);
+    background-color: var(--wheat);
+}
+
+.todo__text {
+    line-height: 1.5;
+}
+
+@media only screen and (min-width: 769px) {
+    .app {
+        max-width: 840px;
+        box-shadow: var(--shadow-desktop);
+        margin: 5rem auto;
+    }
+
+    .todo__item .todo__actions button {
+        padding-inline: .75rem;
+    }
+}
