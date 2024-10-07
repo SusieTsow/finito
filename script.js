@@ -21,12 +21,12 @@ todoList.addEventListener('click', e => {
     if (targetEle.type === "checkbox") {
         const textInput = selectedTodoEle.querySelector('.todo__content input');
         if (targetEle.checked) {
-            textInput.style.color = 'var(--mouse)'; // 设置文本为灰色
+            textInput.style.color = 'var(--mouse)';
             selectedTodoEle.querySelector('.bubble').classList.add("checked");
             todoList.removeChild(selectedTodoEle);
             todoList.appendChild(selectedTodoEle);
         } else {
-            textInput.style.color = ''; // 恢复文本颜色
+            textInput.style.color = ''; 
             selectedTodoEle.querySelector('.bubble').classList.remove("checked");
             todoList.removeChild(selectedTodoEle);
             todoList.insertBefore(selectedTodoEle, todoList.firstChild);
