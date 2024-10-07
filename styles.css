@@ -115,6 +115,7 @@ button {
     display: flex;
     align-items: center;
     column-gap: .5rem;
+    margin-block-end: 1rem;
 }
 
 input[type="checkbox"] {

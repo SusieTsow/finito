@@ -22,11 +22,13 @@ todoList.addEventListener('click', e => {
         const textInput = selectedTodoEle.querySelector('.todo__content input');
         if (targetEle.checked) {
             textInput.style.color = 'var(--mouse)';
+            textInput.style.textDecoration = 'line-through';
             selectedTodoEle.querySelector('.bubble').classList.add("checked");
             todoList.removeChild(selectedTodoEle);
             todoList.appendChild(selectedTodoEle);
         } else {
             textInput.style.color = ''; 
+            textInput.style.textDecoration = '';
             selectedTodoEle.querySelector('.bubble').classList.remove("checked");
             todoList.removeChild(selectedTodoEle);
             todoList.insertBefore(selectedTodoEle, todoList.firstChild);
@@ -38,6 +40,12 @@ todoList.addEventListener('click', e => {
         if (targetEle.innerHTML.toLowerCase() === "edit") {
             textInput.removeAttribute("readonly");
             textInput.focus();
+
+            // Position the cursor at the end of the input text.
+            const value = textInput.value;
+            textInput.value = '';
+            textInput.value = value;
+
             targetEle.innerHTML = "save";
         } else {
             textInput.setAttribute("readonly", "true");
@@ -72,7 +80,7 @@ function createNewTodo(text) {
     const checkBox = document.createElement("input");
     checkBox.setAttribute('type', 'checkbox');
     checkBox.classList.add('todo__checkbox');
-    checkBox.id = `checkbox-${Date.now()}`; // 生成唯一 ID
+    checkBox.id = `checkbox-${Date.now()}`; 
 
     const bubble = document.createElement("span");
     bubble.classList.add('bubble');
@@ -127,3 +135,5 @@ function showTodoList() {
 }
 
 showTodoList();
+
+/* localStorage.clear(); */
