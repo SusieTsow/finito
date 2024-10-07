@@ -39,6 +39,7 @@ todoList.addEventListener('click', e => {
         const textInput = selectedTodoEle.querySelector('.todo__content input');
         if (targetEle.innerHTML.toLowerCase() === "edit") {
             textInput.removeAttribute("readonly");
+            textInput.style.fontWeight = '400';
             textInput.focus();
 
             // Position the cursor at the end of the input text.
@@ -49,6 +50,7 @@ todoList.addEventListener('click', e => {
             targetEle.innerHTML = "save";
         } else {
             textInput.setAttribute("readonly", "true");
+            textInput.style.fontWeight = '';
             targetEle.innerHTML = "edit";
             saveData(); 
         }
