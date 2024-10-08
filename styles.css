@@ -40,6 +40,10 @@ button {
     background: none;
 }
 
+button:focus-visible {
+    outline: 1px solid var(--blush);
+}
+
 .container {
     position: relative;
     width: 100%;

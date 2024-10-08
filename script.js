@@ -24,8 +24,12 @@ todoList.addEventListener('click', e => {
             textInput.style.color = 'var(--mouse)';
             textInput.style.textDecoration = 'line-through';
             selectedTodoEle.querySelector('.bubble').classList.add("checked");
-            todoList.removeChild(selectedTodoEle);
-            todoList.appendChild(selectedTodoEle);
+
+            setTimeout(() => {
+                todoList.removeChild(selectedTodoEle);
+                todoList.appendChild(selectedTodoEle);
+            }, 200);
+
         } else {
             textInput.style.color = ''; 
             textInput.style.textDecoration = '';
@@ -105,12 +109,12 @@ function createNewTodo(text) {
 
     const editBtn = document.createElement("button");
     editBtn.classList.add('buttons');
-    editBtn.setAttribute('id', 'todoedit');
+    editBtn.setAttribute('type', 'button');
     editBtn.innerHTML = "edit";
 
     const deleteBtn = document.createElement("button");
     deleteBtn.classList.add('buttons');
-    deleteBtn.setAttribute('id', 'delete');
+    deleteBtn.setAttribute('type', 'button');
     deleteBtn.innerHTML = "delete";
 
     todoActions.appendChild(editBtn);
